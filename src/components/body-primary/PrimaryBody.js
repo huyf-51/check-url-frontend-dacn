@@ -38,6 +38,7 @@ function get_Prediction(url, showProgress, navigate) {
             // Make progressbar invisible
             showProgress(false);
             // Navigate to /result
+            console.log('data>>>', { inputUrl: url, output: output });
             navigate('/result', { state: { inputUrl: url, output: output } });
         })
         .catch((error) => {

@@ -11,18 +11,18 @@ export function Result(props) {
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const locationState = location.state;
-
+    console.log('location>>>', location.state);
     //----------------------------------------------------------
 
     // Runs at Initial Render. Redirects if State is null.
     useEffect(() => {
-        if (locationState === null || !query.get('inputUrl')) {
+        if (locationState === null || query.get('inputUrl')) {
             console.log('Redirecting to Home');
             navigate('/');
         }
     }, [locationState, navigate]);
 
-    if (locationState === null || !query.get('inputUrl')) {
+    if (locationState === null || query.get('inputUrl')) {
         console.log('LocationState is null');
         return null;
     }
