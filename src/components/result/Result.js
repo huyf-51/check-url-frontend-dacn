@@ -13,16 +13,16 @@ export function Result(props) {
     const locationState = location.state;
     console.log('location>>>', location.state);
     //----------------------------------------------------------
-
+    console.log('query.getinputUrl>>>', query.get('inputUrl'));
     // Runs at Initial Render. Redirects if State is null.
     useEffect(() => {
-        if (locationState === null || query.get('inputUrl')) {
+        if (locationState === null && !query.get('inputUrl')) {
             console.log('Redirecting to Home');
             navigate('/');
         }
     }, [locationState, navigate]);
 
-    if (locationState === null || query.get('inputUrl')) {
+    if (locationState === null && !query.get('inputUrl')) {
         console.log('LocationState is null');
         return null;
     }
