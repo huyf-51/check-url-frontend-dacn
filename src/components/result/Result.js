@@ -35,7 +35,7 @@ export function Result(props) {
         ? query.get('inputUrl')
         : locationState['inputUrl'];
     const output = query.get('output')
-        ? JSON.stringify(query.get('output'))
+        ? JSON.parse(query.get('output'))
         : locationState['output'];
     console.log('OUTPUT : ', output);
 
