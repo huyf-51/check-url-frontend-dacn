@@ -34,7 +34,7 @@ export function Header({ LoggedInUser }) {
 
                 <span className="text-white float-right ml-5 sm:ml-14 sm:mt-3 mt-4 sm:text-base text-sm text-roboto link-underline link-underline-black">
                     <a
-                        href="http://localhost:8000/docs"
+                        href={`${process.env.REACT_APP_API}/docs`}
                         target="_blank"
                         rel="noreferrer"
                     >

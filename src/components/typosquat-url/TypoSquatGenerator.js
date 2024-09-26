@@ -34,7 +34,7 @@ function TypoSquatGenerator() {
         setShowProgress(true); // Make progressbar visible
 
         const MAX_DOMAINS = 50; // Number of registered domains to retrieve
-        const api_url = 'https://localhost:8000/get_typesquatted_urls';
+        const api_url = `${process.env.REACT_APP_API}/get_typesquatted_urls`;
 
         var data = {
             url: input_Url.toLocaleLowerCase(),

@@ -19,7 +19,7 @@ function get_Prediction(url, showProgress, navigate) {
     // Make progressbar visible
     showProgress(true);
 
-    const api_url = 'http://localhost:8000/predict';
+    const api_url = `${process.env.REACT_APP_API}/predict`;
 
     // No need to convert to json string
     var data = { url: url };
