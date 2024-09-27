@@ -9,20 +9,17 @@ import URLSafeGif from '../../assets/UrlSafe.gif';
 export function Result(props) {
     const navigate = useNavigate();
     const location = useLocation();
-    const query = new URLSearchParams(location.search);
     const locationState = location.state;
-    console.log('location>>>', location.state);
     //----------------------------------------------------------
-    console.log('query.getinputUrl>>>', query.get('inputUrl'));
     // Runs at Initial Render. Redirects if State is null.
     useEffect(() => {
-        if (locationState === null && !query.get('inputUrl')) {
+        if (locationState === null) {
             console.log('Redirecting to Home');
             navigate('/');
         }
     }, [locationState, navigate]);
 
-    if (locationState === null && !query.get('inputUrl')) {
+    if (locationState === null) {
         console.log('LocationState is null');
         return null;
     }
@@ -31,12 +28,8 @@ export function Result(props) {
 
     // Extract Data
     const HIGHEST_URL_SCORE = 180;
-    const input_url = query.get('inputUrl')
-        ? query.get('inputUrl')
-        : locationState['inputUrl'];
-    const output = query.get('output')
-        ? JSON.parse(query.get('output'))
-        : locationState['output'];
+    const input_url = locationState['inputUrl'];
+    const output = locationState['output'];
     console.log('OUTPUT : ', output);
 
     // Legitimate URLs have higher scores
